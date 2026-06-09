@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ID Card</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<h2>Student ID Card</h2>
+
+<p>Name : {{ student.name }}</p>
+
+<p>ID : {{ student.student_id }}</p>
+
+<p>Course : {{ student.course }}</p>
+
+<p>Mobile : {{ student.mobile }}</p>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student ERP Dashboard</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#f5f7fa,#dfe9f3);
+    margin:0;
+    padding:30px;
+}
+
+.dashboard-card{
+    max-width:1000px;
+    margin:auto;
+    background:white;
+    border-radius:30px;
+    padding:50px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.15);
+    border-top:8px solid #2563eb;
+}
+
+.profile-img{
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    border:6px solid #2563eb;
+    object-fit:cover;
+    box-shadow:0 0 20px rgba(37,99,235,.4);
+}
+
+.welcome{
+    color:#1e40af;
+    font-size:42px;
+    font-weight:bold;
+    margin-top:20px;
+}
+
+.qr-img{
+    width:140px;
+    height:140px;
+    padding:10px;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.info-box{
+    background:#f8fafc;
+    padding:30px;
+    border-radius:20px;
+    margin-top:30px;
+    line-height:2;
+    font-size:18px;
+    border-left:6px solid #2563eb;
+}
+
+.status-approved{
+    background:#16a34a;
+    color:white;
+    padding:15px 30px;
+    border-radius:30px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.status-pending{
+    background:#f59e0b;
+    color:white;
+    padding:15px 30px;
+    border-radius:30px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 28px;
+    border-radius:12px;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    margin:10px;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.id-btn{
+    background:#2563eb;
+}
+
+.cert-btn{
+    background:#16a34a;
+}
+
+.logout-btn{
+    background:#dc2626;
+}
+
+.footer{
+    text-align:center;
+    color:gray;
+    margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="dashboard-card">
+
+<center>
+
+<img src="{{ url_for('static', filename='images/logo.png') }}"
+     width="120">
+
+<h1 style="
+color:#1e3a8a;
+font-size:38px;
+margin-top:10px;">
+Sangita Education & Technology Foundation
+</h1>
+
+<p style="
+color:#666;
+font-size:18px;">
+Student ERP Dashboard
+</p>
+
+<img src="/uploads/{{ student.photo }}"
+     class="profile-img">
+
+<h1 class="welcome">
+Welcome {{ student.name }}
+</h1>
+
+<h3>QR Verification Code</h3>
+
+<img src="/static/qr/{{ student.qr_code }}"
+     class="qr-img">
+
+</center>
+
+<div class="info-box">
+
+<div style="
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;">
+
+<p><b>Student ID:</b> {{ student.student_id }}</p>
+
+<p><b>Email:</b> {{ student.email }}</p>
+
+<p><b>Mobile:</b> {{ student.mobile }}</p>
+
+<p><b>Course:</b> {{ student.course }}</p>
+
+<p><b>Father Name:</b> {{ student.father_name }}</p>
+
+<p><b>Mother Name:</b> {{ student.mother_name }}</p>
+
+<p><b>Duration:</b> {{ student.duration }}</p>
+
+<p><b>Apply Date:</b> {{ student.apply_date }}</p>
+
+</div>
+
+</div>
+
+<br>
+
+<center>
+
+<h2>Certificate Status</h2>
+
+{% if student.certificate_status == "Approved" %}
+
+<span class="status-approved">
+✅ Approved
+</span>
+
+{% else %}
+
+<span class="status-pending">
+⏳ Pending
+</span>
+
+{% endif %}
+
+<br><br><br>
+
+<a href="/generate_id_card/{{ student.id }}"
+   class="btn id-btn">
+🪪 Download ID Card
+</a>
+
+<a href="/download_certificate/{{ student.id }}"
+   class="btn cert-btn">
+📄 Download Certificate
+</a>
+
+<a href="/logout"
+   class="btn logout-btn">
+🚪 Logout
+</a>
+
+</center>
+
+<hr>
+
+<p class="footer">
+© 2026 Sangita Education & Technology Foundation | Student ERP Portal
+</p>
+
+</div>
+
+</body>
+</html>

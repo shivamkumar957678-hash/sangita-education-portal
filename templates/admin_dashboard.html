@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin ERP Dashboard</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#eef2f7;
+}
+
+/* HEADER */
+
+.header{
+    background:linear-gradient(90deg,#0f172a,#1e3a8a);
+    color:white;
+    padding:20px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo-area img{
+    width:70px;
+}
+
+.logo-area h1{
+    font-size:28px;
+}
+
+.admin-badge{
+    background:white;
+    color:#1e3a8a;
+    padding:10px 20px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+/* STATS */
+
+.stats{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin:30px;
+    flex-wrap:wrap;
+}
+
+.stat-card{
+    width:250px;
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.stat-card h2{
+    color:#2563eb;
+    font-size:45px;
+}
+
+.stat-card p{
+    margin-top:10px;
+    color:#555;
+    font-weight:bold;
+}
+
+/* SEARCH */
+
+.search-box{
+    width:95%;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.search-box form{
+    display:flex;
+    gap:10px;
+}
+
+.search-box input{
+    flex:1;
+    padding:14px;
+    border:1px solid #ccc;
+    border-radius:10px;
+}
+
+.search-btn{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:14px 25px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* RECENT */
+
+.recent{
+    width:95%;
+    margin:25px auto;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.recent h2{
+    color:#1e3a8a;
+    margin-bottom:10px;
+}
+
+/* BUTTONS */
+
+.top-btn{
+    display:inline-block;
+    background:#16a34a;
+    color:white;
+    padding:12px 20px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+    margin:20px;
+}
+
+/* TABLE */
+
+.table-box{
+    width:95%;
+    margin:20px auto;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#1e3a8a;
+    color:white;
+    padding:15px;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #eee;
+    text-align:center;
+}
+
+tr:hover{
+    background:#f8fafc;
+}
+
+.photo{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+/* ACTION BUTTONS */
+
+.btn{
+    display:inline-block;
+    padding:8px 15px;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:14px;
+    margin:3px;
+}
+
+.approve{
+    background:#16a34a;
+}
+
+.certificate{
+    background:#2563eb;
+}
+
+.delete{
+    background:#dc2626;
+}
+
+/* LOGOUT */
+
+.logout{
+    display:inline-block;
+    margin:20px;
+    background:#dc2626;
+    color:white;
+    padding:12px 20px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+}
+/* ===== PROFESSIONAL UPGRADE ===== */
+
+.header{
+    background:linear-gradient(135deg,#0f172a,#1e40af);
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.logo-area img{
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    background:white;
+    padding:5px;
+}
+
+.logo-area h1{
+    font-size:32px;
+    font-weight:bold;
+}
+
+.stat-card{
+    box-shadow:0 8px 25px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.stat-card:hover{
+    transform:translateY(-5px);
+}
+
+.table-box{
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.1);
+}
+
+.photo{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    border:3px solid #2563eb;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+
+<div class="logo-area">
+
+<img src="{{ url_for('static', filename='images/logo.png') }}">
+
+<div>
+<h1>Sangita Education & Technology Foundation</h1>
+<p>Student Registration & Certificate Management System</p>
+</div>
+
+</div>
+
+<div class="admin-badge">
+👨‍💼 Administrator
+</div>
+
+</div>
+
+<div class="stats">
+
+<div class="stat-card">
+<h2>{{ total_students }}</h2>
+<p>Total Students</p>
+</div>
+
+<div class="stat-card">
+<h2>{{ total_certificates }}</h2>
+<p>Approved Certificates</p>
+</div>
+
+<div class="stat-card">
+<h2>{{ pending_certificates }}</h2>
+<p>Pending Certificates</p>
+</div>
+<div class="stat-card">
+<h2>{{ total_certificates }}</h2>
+<p>Certificates Generated</p>
+</div>
+
+</div>
+
+<a href="/download_excel" class="top-btn">
+📊 Download Excel Report
+</a>
+
+<div class="search-box">
+
+<form action="/search" method="POST">
+
+<input type="text"
+       name="keyword"
+       placeholder="Search Student By Name, Email, ID">
+
+<button class="search-btn">
+Search
+</button>
+
+</form>
+
+</div>
+
+<div class="recent">
+
+<h2>📌 Recent Registrations</h2>
+
+<ul>
+
+{% for s in recent_students %}
+<li>{{ s.student_id }} - {{ s.name }}</li>
+{% endfor %}
+
+</ul>
+
+</div>
+
+<div class="table-box">
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Student ID</th>
+<th>Photo</th>
+<th>Name</th>
+<th>Mobile</th>
+<th>Email</th>
+<th>Course</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+
+{% for s in students %}
+
+<tr>
+
+<td>{{ s.id }}</td>
+
+<td>{{ s.student_id }}</td>
+
+<td>
+<img src="/uploads/{{ s.photo }}"
+     class="photo">
+</td>
+
+<td>{{ s.name }}</td>
+
+<td>{{ s.mobile }}</td>
+
+<td>{{ s.email }}</td>
+
+<td>{{ s.course }}</td>
+<td>
+{% if s.certificate_status == "Approved" %}
+
+<span style="
+background:#16a34a;
+color:white;
+padding:6px 12px;
+border-radius:20px;
+font-weight:bold;">
+✅ Approved
+</span>
+
+{% else %}
+
+<span style="
+background:#f59e0b;
+color:white;
+padding:6px 12px;
+border-radius:20px;
+font-weight:bold;">
+⏳ Pending
+</span>
+
+{% endif %}
+</td>
+
+
+<td>
+
+<a href="/approve_certificate/{{ s.id }}"
+   class="btn approve">
+Approve
+</a>
+
+<a href="/generate_certificate/{{ s.id }}"
+   class="btn certificate">
+Certificate
+</a>
+
+<a href="/delete_student/{{ s.id }}"
+   class="btn delete"
+   onclick="return confirm('Delete this student?')">
+Delete
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+<a href="/logout" class="logout">
+🚪 Logout
+</a>
+<hr style="margin-top:40px;">
+
+<center>
+<p style="color:#666;padding:20px;">
+© 2026 Sangita Education & Technology Foundation
+</p>
+</center>
+
+
+</body>
+</html>

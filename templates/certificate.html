@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Certificate</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<h1>SANGITA EDUCATION & TECHNOLOGY FOUNDATION</h1>
+
+<h2>CERTIFICATE OF COMPLETION</h2>
+
+<p>This is to certify that</p>
+
+<h2>{{ student.name }}</h2>
+
+<p>has successfully completed</p>
+
+<h3>{{ student.course }}</h3>
+
+<p>Duration : {{ student.duration }}</p>
+
+<p>Certificate ID : {{ student.student_id }}</p>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

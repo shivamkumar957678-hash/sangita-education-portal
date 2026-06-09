@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sangita Education & Technology Foundation</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+
+    <div class="top-bar">
+       📞 +917488275559 | 📧 sangitaeducation@gmail.com | 📍 Bihar, India
+    </div>
+
+    <!-- Navbar -->
+
+    <header>
+<div class="logo">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+
+    <div class="logo-text">
+        <h1>SANGITA</h1>
+
+        <h2>EDUCATION & TECHNOLOGY FOUNDATION</h2>
+
+        <p>Skill Development | Internship | Certification</p>
+    </div>
+</div>
+        
+
+        <nav>
+
+            <a href="/">Home</a>
+
+            <a href="/about">About Us</a>
+
+            <a href="/courses">Courses</a>
+
+            <a href="/internship">Internship</a>
+
+            <a href="/notice">Notice Board</a>
+
+            <a href="/contact">Contact Us</a>
+
+        </nav>
+
+        <a href="/register" class="apply-btn">
+            Apply Now
+        </a>
+
+    </header>
+
+    <!-- Hero Section -->
+<!-- Hero Section -->
+
+<section class="hero-banner">
+
+    <img src="{{ url_for('static', filename='images/student-banner.png') }}"
+         class="full-banner"
+         alt="Student Banner">
+
+</section>
+
+    <!-- Admission Banner -->
+
+    <div class="admission-banner">
+
+    📢 ADMISSIONS OPEN FOR {{ current_year }} BATCH
+
+</div>
+    <!-- Stats Section -->
+
+<section class="stats">
+
+    <div class="stat-box">
+        <h2>5000+</h2>
+        <p>Students</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>50+</h2>
+        <p>Expert Trainers</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>100%</h2>
+        <p>Placement Support</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>200+</h2>
+        <p>Certificates Issued</p>
+    </div>
+
+</section>
+
+    <!-- Service Cards -->
+
+    <section class="services">
+
+        <div class="service-card">
+
+            <h3>🎓 Student Registration</h3>
+
+            <p>Register for Courses & Internship</p>
+
+            <a href="/register">
+                Register Now
+            </a>
+
+        </div>
+
+        <div class="service-card">
+
+            <h3>🔐 Student Login</h3>
+
+            <p>Access Student Dashboard</p>
+
+            <a href="/login">
+                Login Now
+            </a>
+
+        </div>
+
+        <div class="service-card">
+
+            <h3>📜 Certificate Verification</h3>
+
+            <p>Verify Certificate</p>
+
+            <a href="/verify_certificate">
+    Verify Now
+</a>
+
+        </div>
+
+        <div class="service-card">
+
+            <h3>🛡 Admin Login</h3>
+
+            <p>Manage Students</p>
+
+            <a href="/admin">
+                Admin Login
+            </a>
+
+        </div>
+
+        <div class="service-card">
+
+            <h3>☎ Contact Us</h3>
+
+            <p>Need Help?</p>
+
+            <a href="/contact">
+                Contact Us
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- Information Section -->
+
+    <section class="info-grid">
+
+        <div class="info-card">
+
+            <h3>📢 Latest Notices</h3>
+
+            <ul>
+                <li>Admissions Open For 2026</li>
+                <li>Python Batch Starting Soon</li>
+                <li>DCA & ADCA Classes</li>
+                <li>Internship Opportunities</li>
+            </ul>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>💼 Internship Updates</h3>
+
+            <ul>
+                <li>Python Internship</li>
+                <li>Data Analytics Internship</li>
+                <li>AI & ML Internship</li>
+                <li>Web Development Internship</li>
+            </ul>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>📚 Popular Courses</h3>
+
+            <ul>
+                <li>Python</li>
+                <li>Java</li>
+                <li>Data Science</li>
+                <li>Data Analytics</li>
+                <li>Cloud Computing</li>
+                <li>AI & ML</li>
+            </ul>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>🏆 Why Choose Us?</h3>
+
+            <ul>
+                <li>Industry Training</li>
+                <li>Practical Learning</li>
+                <li>Certification</li>
+                <li>Placement Support</li>
+            </ul>
+
+            <img src="{{ url_for('static', filename='images/placement.png') }}"
+                 alt="Placement"
+                 width="150">
+
+        </div>
+
+    </section>
+
+    <!-- Statistics -->
+
+    <section class="stats">
+
+        <div class="stat-box">
+            <h2>1250+</h2>
+            <p>Students Enrolled</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>50+</h2>
+            <p>Courses Offered</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>300+</h2>
+            <p>Internships Completed</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>800+</h2>
+            <p>Certificates Issued</p>
+        </div>
+
+    </section>
+
+    <!-- Certificate -->
+
+    <section class="certificate-section">
+
+        <h2>📜 Sample Certificate</h2>
+
+        <img src="{{ url_for('static', filename='images/certificate.png') }}"
+             alt="Certificate">
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="main-footer">
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h3>Sangita Education & Technology Foundation</h3>
+            <p>
+                Skill Development, Internship Programs,
+                Certification & Career Support.
+            </p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <p><a href="/">Home</a></p>
+            <p><a href="/about">About Us</a></p>
+            <p><a href="/courses">Courses</a></p>
+            <p><a href="/contact">Contact Us</a></p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact Info</h3>
+            <p>📞 +91 7488275559</p>
+            <p>📧 sangitaeducation@gmail.com</p>
+            <p>📍 Bihar, India</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Sangita Education & Technology Foundation | All Rights Reserved
+    </div>
+
+</footer>
+
+    <!-- WhatsApp -->
+
+    <a href="https://wa.me/+917488275559"
+       target="_blank"
+       class="whatsapp-btn">
+
+       WhatsApp
+
+    </a>
+
+</body>
+</html>
