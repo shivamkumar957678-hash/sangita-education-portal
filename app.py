@@ -217,7 +217,7 @@ body {{
 <p><b>Status:</b> {student.certificate_status}</p>
 <br><br>
 
-<a href="/generate_certificate/{student.id}"
+<a href="/download_certificate/{student.id}"
 style="
 background:#16a34a;
 color:white;
