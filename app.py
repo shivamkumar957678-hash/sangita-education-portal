@@ -125,27 +125,6 @@ def home():
 @app.route("/about")
 def about():
     return render_template("about.html")
-
-@app.route("/courses")
-def courses():
-    return render_template("courses.html")
-
-@app.route("/internship")
-def internship():
-    return render_template("internship.html")
-
-@app.route("/notice")
-def notice():
-    return render_template("notice.html")
-
-@app.route("/contact")
-def contact():
-    return render_template("contact.html")
-@app.route("/register")
-def register_page():
-    return render_template("register.html")
-
-
 @app.route("/verify")
 def verify():
 
@@ -164,7 +143,7 @@ def verify():
             """
 
         return f"""
-    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -208,24 +187,6 @@ body {{
     font-weight:bold;
 }}
 
-.btn {{
-    display:inline-block;
-    padding:12px 20px;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-    margin:10px;
-    font-weight:bold;
-}}
-
-.cert {{
-    background:#16a34a;
-}}
-
-.idcard {{
-    background:#2563eb;
-}}
-
 </style>
 </head>
 
@@ -254,31 +215,62 @@ body {{
 <p><b>Duration:</b> {student.duration}</p>
 
 <p><b>Status:</b> {student.certificate_status}</p>
+<br><br>
 
-<br>
-
-<a href="/download_certificate/{student.id}"
-class="btn cert">
-📄 Download Certificate
+<a href="/generate_certificate/{student.id}"
+style="
+background:#16a34a;
+color:white;
+padding:12px 20px;
+text-decoration:none;
+border-radius:8px;
+margin:5px;
+display:inline-block;">
+📄 View Certificate
 </a>
 
 <a href="/generate_id_card/{student.id}"
-class="btn idcard">
-🪪 Download ID Card
+style="
+background:#2563eb;
+color:white;
+padding:12px 20px;
+text-decoration:none;
+border-radius:8px;
+margin:5px;
+display:inline-block;">
+🪪 View ID Card
 </a>
-
 </div>
 
 </body>
 </html>
 """
+
     return """
     <h2>Invalid Verification Link</h2>
     <p>Student ID not found.</p>
     """
-    
-    
-    
+
+@app.route("/courses")
+def courses():
+    return render_template("courses.html")
+
+@app.route("/internship")
+def internship():
+    return render_template("internship.html")
+
+@app.route("/notice")
+def notice():
+    return render_template("notice.html")
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+@app.route("/register")
+def register_page():
+    return render_template("register.html")
+
+  
 @app.route("/verify_certificate", methods=["GET", "POST"])
 def verify_certificate():
 
@@ -478,8 +470,9 @@ def register():
 
     photo.save("uploads/" + filename)
     qr = qrcode.make(
-    f"http://127.0.0.1:5000/verify?student_id={student_id}"
+    f"https://sangita-education-portal.onrender.com/verify?student_id={student_id}"
 )
+
 
     qr_file = f"{student_id}.png"
 
@@ -812,8 +805,8 @@ def delete_student(id):
 @app.route("/generate_certificate/<int:id>")
 def generate_certificate(id):
 
-    if "admin" not in session:
-        return redirect("/admin")
+    if "admin" not in session and "student" not in session:
+        return redirect("/login")
 
     student = Student.query.get(id)
 
