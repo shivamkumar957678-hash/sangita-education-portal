@@ -1498,10 +1498,76 @@ img{
     }
 
 }
+
+/* ADMIN TABLE */
+
 .table-responsive{
     overflow-x:auto;
 }
 
 table{
-    min-width:900px;
+    min-width:1400px;
+}
+
+/* BUTTONS */
+
+.btn{
+    display:inline-block;
+    padding:8px 15px;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:14px;
+    margin:3px;
+}
+html,body{
+    width:100%;
+    overflow-x:hidden;
+}
+
+header,
+.top-bar,
+.hero-banner,
+.full-banner,
+.stats,
+.services,
+.info-grid,
+.main-footer,
+.footer-container{
+    width:100%;
+    max-width:100%;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+.hero-banner img,
+.full-banner{
+    width:100%;
+    display:block;
+}
+@media (max-width:768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .services,
+    .info-grid,
+    .stats,
+    .footer-container{
+        width:100%;
+        padding-left:10px;
+        padding-right:10px;
+        box-sizing:border-box;
+    }
+
+    .service-card,
+    .info-card,
+    .stat-box{
+        width:100%;
+    }
+
 }
