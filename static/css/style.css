@@ -1411,3 +1411,48 @@ body{
     border-radius:15px;
     box-shadow:0 5px 15px rgba(0,0,0,.15);
 }
+/* MOBILE RESPONSIVE FIX */
+
+body{
+    overflow-x:hidden;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+@media (max-width:768px){
+
+    .container,
+    .form-container,
+    .registration-form,
+    .card{
+        width:95% !important;
+        margin:auto !important;
+    }
+
+    .hero,
+    .banner,
+    .header{
+        width:100% !important;
+        overflow:hidden;
+    }
+
+    .hero-content{
+        flex-direction:column !important;
+    }
+
+    .hero img{
+        width:90% !important;
+        margin:auto;
+    }
+
+}
+.table-responsive{
+    overflow-x:auto;
+}
+
+table{
+    min-width:1200px;
+}
