@@ -4,3 +4,4 @@ gunicorn
 qrcode
 Pillow
 openpyxl
+reportlab
