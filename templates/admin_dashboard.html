@@ -147,7 +147,7 @@ body{
     margin:20px auto;
     background:white;
     border-radius:15px;
-    overflow:hidden;
+    overflow-x:auto;
     box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
@@ -273,6 +273,31 @@ img{
     height:70px;
     border-radius:50%;
     border:3px solid #2563eb;
+}
+.table-responsive{
+    overflow-x:auto;
+}
+
+table{
+    min-width:1400px;
+}
+
+@media (max-width:768px){
+
+    .header{
+        flex-direction:column;
+        text-align:center;
+        gap:15px;
+    }
+
+    .search-box form{
+        flex-direction:column;
+    }
+
+    .table-box{
+        overflow-x:auto;
+    }
+
 }
 
 </style>
