@@ -1,8 +1,6 @@
 Flask
 Flask-SQLAlchemy
-Flask-Mail
-reportlab
-pillow
+gunicorn
 qrcode
+Pillow
 openpyxl
-pandas
