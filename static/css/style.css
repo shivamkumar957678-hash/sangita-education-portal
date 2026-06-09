@@ -1449,10 +1449,59 @@ img{
     }
 
 }
+/* MOBILE FIX FOR HOME PAGE */
+
+@media (max-width:768px){
+
+    header{
+        flex-direction:column;
+        text-align:center;
+        padding:15px;
+    }
+
+    .logo{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .logo img{
+        width:90px;
+        margin-bottom:10px;
+    }
+
+    nav{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:10px;
+        margin-top:15px;
+    }
+
+    nav a{
+        font-size:14px;
+    }
+
+    .apply-btn{
+        margin-top:15px;
+    }
+
+    .footer-container{
+        flex-direction:column;
+        text-align:center;
+        gap:20px;
+    }
+
+    .hero-banner img,
+    .full-banner{
+        width:100%;
+        height:auto;
+    }
+
+}
 .table-responsive{
     overflow-x:auto;
 }
 
 table{
-    min-width:1200px;
+    min-width:1400px;
 }
