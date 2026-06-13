@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import pandas as pd
+import os
 from flask import send_file
 from reportlab.pdfgen import canvas
 from flask import send_from_directory
@@ -50,13 +51,15 @@ def send_otp(email, otp):
 
 app = Flask(__name__)
 
+
+
 @app.route('/robots.txt')
 def robots():
-    return send_from_directory('.', 'robots.txt')
+    return send_from_directory(os.path.dirname(os.path.abspath(__file__)), 'robots.txt')
 
 @app.route('/sitemap.xml')
 def sitemap():
-    return send_from_directory('.', 'sitemap.xml')
+    return send_from_directory(os.path.dirname(os.path.abspath(__file__)), 'sitemap.xml')
 
 app.secret_key = "SANGITA2026"
 
