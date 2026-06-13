@@ -49,7 +49,9 @@ def send_otp(email, otp):
         return False
 
 app = Flask(__name__)
-
+@app.route('/robots.txt')
+def robots():
+    return send_from_directory('.', 'robots.txt')
 app.secret_key = "SANGITA2026"
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
