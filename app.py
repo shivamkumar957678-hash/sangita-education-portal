@@ -52,6 +52,9 @@ app = Flask(__name__)
 @app.route('/robots.txt')
 def robots():
     return send_from_directory('.', 'robots.txt')
+    @app.route('/sitemap.xml')
+def sitemap():
+    return send_from_directory('.', 'sitemap.xml')
 app.secret_key = "SANGITA2026"
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
